@@ -7,9 +7,12 @@ import org.junit.Test;
 public class GildedRoseTest
 {
 	@Test
-	public void aSimpleBeginningTest()
+	public void everyDayQualityAndSellinDecrementing()
 	{
-		assertEquals(true,false);
+		Item testItem = new Item("test_item",10,10);
+		GildedRose.updateItem(testItem);
+		assertEquals(testItem.getQuality(),9);
+		assertEquals(testItem.getSellIn(),9);
 	}
 
 }
