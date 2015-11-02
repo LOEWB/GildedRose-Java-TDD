@@ -6,22 +6,32 @@ import org.junit.Test;
 
 public class GildedRoseTest
 {
+	public void qualityAndSellinTestProduction(ExpectedItem expectedItem) 
+	{
+		Item testItem = expectedItem.getItem();
+		GildedRose.updateItem(testItem);
+		assertEquals(testItem.getQuality(),expectedItem.getExpectedQuality());
+		assertEquals(testItem.getSellIn(),expectedItem.getExpectedSellin());
+	}
+	
 	@Test
 	public void everyDayQualityAndSellinDecrementing()
 	{
-		Item testItem = new Item("test_item",10,10);
-		GildedRose.updateItem(testItem);
-		assertEquals(testItem.getQuality(),9);
-		assertEquals(testItem.getSellIn(),9);
+		qualityAndSellinTestProduction(new ExpectedItem(new Item(10,10),9,9));
 	}
-	
+	@Test
 	public void everyDayUpdateWithSellinNegativeTest()
 	{
-		Item testItem = new Item("test_item",0,5);
-		GildedRose.updateItem(testItem);
-		assertEquals(testItem.getQuality(),3);
-		assertEquals(testItem.getSellIn(),-1);
+		qualityAndSellinTestProduction(new ExpectedItem(new Item(0,5),-1,3));
 	}
+	@Test
+	public void qualityAlwaysPositive()
+	{
+		qualityAndSellinTestProduction(new ExpectedItem(new Item(0,0),-1,0));
+		qualityAndSellinTestProduction(new ExpectedItem(new Item(0,1),-1,0));
+		qualityAndSellinTestProduction(new ExpectedItem(new Item(1,0),0,0));
+	}
+	
 	
 
 }

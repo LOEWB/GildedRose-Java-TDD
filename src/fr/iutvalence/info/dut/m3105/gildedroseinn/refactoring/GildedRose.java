@@ -33,7 +33,6 @@ public class GildedRose
 		{
 			item.setQuality(item.getQuality()-1);
 		}
-		
 		item.setSellIn(item.getSellIn()-1);
 	}
 

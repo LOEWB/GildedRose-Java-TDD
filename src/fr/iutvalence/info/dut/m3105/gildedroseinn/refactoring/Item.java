@@ -12,6 +12,12 @@ public class Item
 		this.setSellIn(sellIn);
 		this.setQuality(quality);
 	}
+	
+	public Item(int sellIn, int quality)
+	{
+		this.setSellIn(sellIn);
+		this.setQuality(quality);
+	}
 
 	public String getName()
 	{
