@@ -14,5 +14,14 @@ public class GildedRoseTest
 		assertEquals(testItem.getQuality(),9);
 		assertEquals(testItem.getSellIn(),9);
 	}
+	
+	public void everyDayUpdateWithSellinNegativeTest()
+	{
+		Item testItem = new Item("test_item",0,5);
+		GildedRose.updateItem(testItem);
+		assertEquals(testItem.getQuality(),3);
+		assertEquals(testItem.getSellIn(),-1);
+	}
+	
 
 }
