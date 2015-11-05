@@ -41,6 +41,11 @@ public class GildedRoseTest
 	{
 		qualityAndSellinUpdateTestProduction(new ExpectedItem(new Item("Aged Brie",0,50),-1,50));
 	}
+	@Test
+	public void qualityOfSulfurasNeverDecreases()
+	{
+		qualityAndSellinUpdateTestProduction(new ExpectedItem(new Item("Sulfuras",0,10),-1,10));
+	}
 	
 
 }
