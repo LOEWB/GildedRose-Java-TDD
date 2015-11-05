@@ -34,6 +34,9 @@ public class GildedRose
 
 		if (item.getQuality()<0)
 			item.setQuality(0);
+		
+		if (item.getQuality()>50)
+			item.setQuality(50);
 	}
 
 	private static void updateAllItemsExeptAgedBrie(Item item) 
