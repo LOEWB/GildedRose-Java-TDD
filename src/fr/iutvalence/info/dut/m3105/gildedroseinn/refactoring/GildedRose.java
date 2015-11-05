@@ -25,14 +25,15 @@ public class GildedRose
 
 	public static void updateAllItems(Item item)
 	{
+		item.setSellIn(item.getSellIn()-1);
+		
 		if(item.getName() == "Aged Brie")
 			updateAgedBrieItem(item);
-		else if (item.getName() != "Sulfuras")
+		else if (item.getName() != "Sulfuras" && item.getName() != "Backstage passes")
 			updateBasicItem(item);
+		else if (item.getName() == "Backstage passes")
+			updateBackstagePasses(item);
 			
-		
-		item.setSellIn(item.getSellIn()-1);
-
 		if (item.getQuality()<0)
 			item.setQuality(0);
 		
@@ -40,6 +41,20 @@ public class GildedRose
 			item.setQuality(50);
 	}
 
+
+	private static void updateBackstagePasses(Item item) 
+	{
+		if(item.getSellIn()<=10 && item.getSellIn()>5)
+			item.setQuality(item.getQuality()+2);
+		else if (item.getSellIn()<=5)
+			item.setQuality(item.getQuality()+3);
+		else
+			item.setQuality(item.getQuality()+1);
+		
+		if (item.getSellIn()<0)
+			item.setQuality(0);
+		
+	}
 
 	private static void updateBasicItem(Item item) 
 	{
