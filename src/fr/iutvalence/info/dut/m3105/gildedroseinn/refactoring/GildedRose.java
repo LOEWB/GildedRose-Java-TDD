@@ -29,10 +29,12 @@ public class GildedRose
 		
 		if(item.getName() == "Aged Brie")
 			updateAgedBrieItem(item);
-		else if (item.getName() != "Sulfuras" && item.getName() != "Backstage passes")
+		else if (item.getName() != "Sulfuras" && item.getName() != "Backstage passes" && !(item instanceof ConjuredItem))
 			updateBasicItem(item);
 		else if (item.getName() == "Backstage passes")
 			updateBackstagePasses(item);
+		else if (item instanceof ConjuredItem)
+			updateConjuredItem(item);
 			
 		if (item.getQuality()<0)
 			item.setQuality(0);
@@ -41,6 +43,11 @@ public class GildedRose
 			item.setQuality(50);
 	}
 
+
+	private static void updateConjuredItem(Item item) 
+	{
+		item.setQuality(item.getQuality()-2);
+	}
 
 	private static void updateBackstagePasses(Item item) 
 	{
