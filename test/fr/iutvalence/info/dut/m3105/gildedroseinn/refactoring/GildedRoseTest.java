@@ -46,6 +46,16 @@ public class GildedRoseTest
 	{
 		qualityAndSellinUpdateTestProduction(new ExpectedItem(new Item("Sulfuras",0,10),-1,10));
 	}
+	@Test
+	public void backstagePassesPropertiesTest()
+	{
+		qualityAndSellinUpdateTestProduction(new ExpectedItem(new Item("Aged Brie",20,0),19,1));
+		qualityAndSellinUpdateTestProduction(new ExpectedItem(new Item("Aged Brie",9,0),8,2));
+		qualityAndSellinUpdateTestProduction(new ExpectedItem(new Item("Aged Brie",4,0),3,3));
+		qualityAndSellinUpdateTestProduction(new ExpectedItem(new Item("Aged Brie",0,10),-1,0));
+
+		
+	}
 	
 
 }
