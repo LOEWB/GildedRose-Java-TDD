@@ -27,8 +27,9 @@ public class GildedRose
 	{
 		if(item.getName() == "Aged Brie")
 			updateAgedBrieItem(item);
-		else
-			updateAllItemsExeptAgedBrie(item);
+		else if (item.getName() != "Sulfuras")
+			updateBasicItem(item);
+			
 		
 		item.setSellIn(item.getSellIn()-1);
 
@@ -39,7 +40,8 @@ public class GildedRose
 			item.setQuality(50);
 	}
 
-	private static void updateAllItemsExeptAgedBrie(Item item) 
+
+	private static void updateBasicItem(Item item) 
 	{
 		if (item.getSellIn()<1)
 		{
