@@ -20,10 +20,23 @@ public class GildedRose
 	public static void updateItems(List<Item> items)
 	{
 		for (int indexInItemList = 0; indexInItemList < items.size(); indexInItemList++)
-			updateItem(items.get(indexInItemList));
+			updateAllItems(items.get(indexInItemList));
 	}
 
-	public static void updateItem(Item item)
+	public static void updateAllItems(Item item)
+	{
+		if(item.getName() == "Aged Brie")
+			updateAgedBrieItem(item);
+		else
+			updateAllItemsExeptAgedBrie(item);
+		
+		item.setSellIn(item.getSellIn()-1);
+
+		if (item.getQuality()<0)
+			item.setQuality(0);
+	}
+
+	private static void updateAllItemsExeptAgedBrie(Item item) 
 	{
 		if (item.getSellIn()<1)
 		{
@@ -33,10 +46,14 @@ public class GildedRose
 		{
 			item.setQuality(item.getQuality()-1);
 		}
-		item.setSellIn(item.getSellIn()-1);
 		
-		if (item.getQuality()<0)
-			item.setQuality(0);
+		
+		
+	}
+
+	private static void updateAgedBrieItem(Item item) 
+	{
+		item.setQuality(item.getQuality()+1);
 	}
 
 }

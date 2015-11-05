@@ -9,7 +9,7 @@ public class GildedRoseTest
 	public void qualityAndSellinUpdateTestProduction(ExpectedItem expectedItem) 
 	{
 		Item testItem = expectedItem.getItem();
-		GildedRose.updateItem(testItem);
+		GildedRose.updateAllItems(testItem);
 		assertEquals(testItem.getQuality(),expectedItem.getExpectedQuality());
 		assertEquals(testItem.getSellIn(),expectedItem.getExpectedSellin());
 	}
