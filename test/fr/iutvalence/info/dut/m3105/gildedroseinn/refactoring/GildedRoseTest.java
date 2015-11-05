@@ -52,9 +52,13 @@ public class GildedRoseTest
 		qualityAndSellinUpdateTestProduction(new ExpectedItem(new Item("Backstage passes",20,0),19,1));
 		qualityAndSellinUpdateTestProduction(new ExpectedItem(new Item("Backstage passes",9,0),8,2));
 		qualityAndSellinUpdateTestProduction(new ExpectedItem(new Item("Backstage passes",4,0),3,3));
-		qualityAndSellinUpdateTestProduction(new ExpectedItem(new Item("Backstage passes",0,10),-1,0));
-
-		
+		qualityAndSellinUpdateTestProduction(new ExpectedItem(new Item("Backstage passes",0,10),-1,0));		
+	}
+	@Test
+	public void conjuredItemDecreasesTwiceAsFast()
+	{
+		qualityAndSellinUpdateTestProduction(new ExpectedItem(new ConjuredItem(10,10),9,8));
+				
 	}
 	
 
