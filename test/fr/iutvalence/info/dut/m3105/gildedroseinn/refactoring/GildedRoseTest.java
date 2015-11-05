@@ -36,7 +36,11 @@ public class GildedRoseTest
 	{
 		qualityAndSellinUpdateTestProduction(new ExpectedItem(new Item("Aged Brie",0,0),-1,1));
 	}
-	
+	@Test
+	public void qualityCanNeverBeMoreThan50()
+	{
+		qualityAndSellinUpdateTestProduction(new ExpectedItem(new Item("Aged Brie",0,50),-1,50));
+	}
 	
 
 }
